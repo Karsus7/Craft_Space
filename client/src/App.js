@@ -5,14 +5,11 @@ import AllPosts from "./pages/AllPosts";
 import PostData from "./pages/PostData";
 import NoMatch from "./pages/NoMatch";
 import ButtonAppBar from "./components/Navbar";
-
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
-
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
-
 import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
@@ -47,10 +44,10 @@ class App extends Component {
       <Router>
       <Navbar />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/Register" component={Register} />
+            <Route exact path="/Login" component={Login} />
             <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/Dashboard" component={Dashboard} />
             </Switch>
         <div>
           <ButtonAppBar />

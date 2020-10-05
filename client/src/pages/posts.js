@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+
+
 //import image1 from './client/public/carpenter-working.jpg';
+
 
 
 function Posts() {
@@ -58,15 +62,24 @@ function Posts() {
   };
 
 
+
+
     return (
-      <Container fluid>
-        <Row>
-          <Col size="md-6">
-            <Jumbotron>
+     
+     <React.Fragment>
+      <CssBaseline/>
+           <div style={{textAlign:"center", 
+           height:"360px", 
+           width:"flex",  
+           backgroundImage:`url(https://freerangestock.com/sample/87961/man-crafting-wood.jpg)` }}>
+
               <h1>Make a Post Below!</h1>
               <p>To post an image, upload it to <a href="https://postimages.org/" target="_blank" rel="noopener noreferrer">
                 PostImages</a>, and paste the Direct link below.</p>
-            </Jumbotron>
+                </div>
+
+      <Container maxWidth="sm" >
+
             <form>
               <Input
                 onChange={handleInputChange}
@@ -88,41 +101,38 @@ function Posts() {
                 name="content"
                 placeholder="Type Your Post Here"
               />
-              <FormBtn
+            
+             <FormBtn
                 disabled={!(formObject.username && formObject.title)}
                 onClick={handleFormSubmit} >
                 Press Here To Post
               </FormBtn>
-            </form>
-          </Col>
+          </form>
+           <h1>Current Posts</h1>
+              {posts.length ? (
+                  <List>
+                  {posts.map(post => (
+                    <ListItem key={post._id}>
+                      <Link to={"/posts/" + post._id}>
+                        <strong>
+                          {post.title} 
+                          {/* by {post.username} */}
+                          {/* <br></br>
+                          {post.content} */}
+                        </strong>
+                      </Link>
+                      <DeleteBtn onClick={() => deletePost(post._id)} />
+                    </ListItem>
+                  ))}
+                </List>
+              ) : (
+                <h3>No Results to Display</h3>
+              )}
+         </Container>
+         <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '40vh' }} />
 
-          <Col size="md-6 sm-12">
-            <Jumbotron>
-              <h1>Current Posts</h1>
-            </Jumbotron>
-            {posts.length ? (
-              <List>
-                {posts.map(post => (
-                  <ListItem key={post._id}>
-                    <Link to={"/posts/" + post._id}>
-                      <strong>
-                        {post.title} 
-                        {/* by {post.username} */}
-                        {/* <br></br>
-                        {post.content} */}
-                      </strong>
-                    </Link>
-                    <DeleteBtn onClick={() => deletePost(post._id)} />
-                  </ListItem>
-                ))}
-              </List>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
-          </Col>
-        </Row>
-      </Container>
-    );
+       </React.Fragment>
+      );
   }
 
 

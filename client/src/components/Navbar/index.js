@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
                 <Typography variant="h6" className={classes.title} href="/">
                   CrafterSpace
                 </Typography>
-                <Button color="inherit" href="/">Login</Button>
+                <Button color="inherit" component={Link} to="/Login">Login</Button>
               </Toolbar>
             </AppBar>
           </div>
