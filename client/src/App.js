@@ -6,6 +6,7 @@ import PostData from "./pages/PostData";
 import NoMatch from "./pages/NoMatch";
 import ButtonAppBar from "./components/Navbar";
 
+
 function App() {
   return (
     <Router>

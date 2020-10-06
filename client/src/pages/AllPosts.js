@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 
 
 function AllPosts() {
@@ -34,13 +36,30 @@ function AllPosts() {
 
 
     return (
-      <Container fluid>
-        <Row>
-          
-          <Col size="lg-12 lg-12">
-            <Jumbotron>
-              <h1>Current Posts</h1>
-            </Jumbotron>
+
+      <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '40vh' }}>
+      <Grid item md={12} md={12}>
+      <Box bgcolor="info.main" >
+    <React.Fragment>
+    <CssBaseline/>
+
+     
+           <div style={{textAlign:"center", 
+            height:"300px",
+            width:"flex",  
+            color:"white",  
+            marginTop:"0", 
+            backgroundImage:`url(https://freerangestock.com/sample/87961/man-crafting-wood.jpg)` }}>
+            
+            
+             </div>
+
+             <h1 style={{marginTop:"10px" }}>Current Posts</h1>
+
+             <div style={{padding:"0px 0px 20px 20px"}}>
+
+
+
             {posts.length ? (
               <List>
                 {posts.map(post => (
@@ -60,12 +79,18 @@ function AllPosts() {
                   </ListItem>
                 ))}
               </List>
+              
             ) : (
               <h3>No Results to Display</h3>
+
             )}
-          </Col>
-        </Row>
-      </Container>
+
+          </div>
+
+       </React.Fragment>
+       </Box>
+      </Grid>
+     </Typography>
     );
   }
 
