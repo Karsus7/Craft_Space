@@ -7,9 +7,14 @@ import PostData from "./pages/PostData";
 import ButtonAppBar from "./components/Navbar";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+<<<<<<< HEAD
 import { AuthProvider } from "./components/context/Auth";
 import ProtectedRoute from "./ProtectedRoute";
 
+=======
+import { AuthProvider } from "./Auth";
+import PrivateRoute from "./PrivateRoute";
+>>>>>>> 1776c833b4dfb64d31a8344085316def89088f61
 
 
 
@@ -26,6 +31,7 @@ function App() {
           </Route>
           <Route exact path="/signup" component={SignUp} />
           
+<<<<<<< HEAD
           <ProtectedRoute exact path="/posts" component={Posts} />
           
           <ProtectedRoute exact path="/posts/:id">
@@ -35,6 +41,17 @@ function App() {
             <AllPosts />
           </ProtectedRoute>
           {/* <Route>
+=======
+          <PrivateRoute exact path="/posts" component={Posts} />
+          
+          <PrivateRoute exact path="/posts/:id">
+            <PostData />
+          </PrivateRoute>
+          <PrivateRoute exact path="/AllPosts">
+            <AllPosts />
+          </PrivateRoute>
+          <Route>
+>>>>>>> 1776c833b4dfb64d31a8344085316def89088f61
             <NoMatch />
           </Route> */}
         </Switch>

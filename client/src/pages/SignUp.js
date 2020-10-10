@@ -1,6 +1,10 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
+<<<<<<< HEAD
 import app from "../setFirebase";
+=======
+import app from "../base";
+>>>>>>> 1776c833b4dfb64d31a8344085316def89088f61
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(async event => {
